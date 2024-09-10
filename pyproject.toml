@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "fast_api_adder_demo"
+version = "0.1.0"
+description = ""
+authors = ["Laurence Billingham"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["standard"], version = "^0.114.0"}
+pydantic = "^2.9.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.4"
+pytest = "^8.3.3"
+black = "^24.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 90
+
+[tool.ruff.lint]
+select = [
+	"F",  # pyflakes
+	"E", "W",  # pycodestyle
+	"C90",  # mccabe
+	"I",  # isort
+	"N",  # pep8-naming
+	"UP",  # pyupgrade
+	"B",  # flake8-bugbear
+	"INP",  # flake8-no-pep420
+]
+
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["INP"]
